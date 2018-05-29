@@ -1,7 +1,7 @@
 {
   "name": "bad-habits",
   "version": "0.1.0",
-  "description": "your financial psy to help you stopping with bad habits",
+  "description": "your financial psy to help you stop with bad habits",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"

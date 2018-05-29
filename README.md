@@ -1,1 +1,1 @@
-## your financial psy to help you stopping with bad habits
+## your financial psy to help you stop with bad habits
