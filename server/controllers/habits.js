@@ -22,10 +22,7 @@
  * @param {res} response
  */
 function renderIndex(req,res){
-  res.render('home', {
-    title: 'Welcome',       
-    layout: 'landing-page'
-  });  
+  res.send("OK")
 }
 
 
