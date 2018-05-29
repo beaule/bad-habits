@@ -15,6 +15,9 @@ var app = express();
  * Set up app properties & engine
  ************************************/
 app.use(Logger.getRequestLogger());
+app.set('appname',  process.env.APPNAME);
+app.set('env',  process.env.ENVIRONMENT);
+app.set('port', process.env.PORT || process.env.DEFAULT_APP_HTTP_LISTENING_PORT);
 
 /***********************************
  * Controllers
@@ -26,11 +29,11 @@ app.get('/', habitsController.index);
 /***********************************
  * Start server
  ************************************/
-var server = app.listen(8081, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  
-  console.log("bad-habits app listening at http://%s:%s", host, port);
+/***********************************
+ * App initialization
+ ************************************/
+app.listen(app.get('port'), function() {  
+  Logger.getLogger().info('Express server listening on port ' + app.get('port'));
 });
 
 /***********************************
