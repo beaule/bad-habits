@@ -7,12 +7,24 @@
     "start": "node server/server.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "compression": "^1.7.2",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
+    "express-session": "^1.15.6",
+    "express-flash": "^0.0.2",
     "express-validator": "^2.20.4",
     "express-winston-middleware": "^0.1.0",
     "gulp-install": "^1.1.0",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "loopback": "^3.19.3",
+    "loopback-boot": "^2.27.1",
+    "loopback-component-explorer": "^6.0.1",
+    "loopback-component-passport": "^3.8.1",
+    "strong-error-handler": "^2.3.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

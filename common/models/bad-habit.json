@@ -1,0 +1,25 @@
+{
+  "name": "badHabit",
+  "plural": "badHabits",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "category": {
+      "type": "string",
+      "required": true,
+      "default": "bar-restaurants"
+    },
+    "product": {
+      "type": "string",
+      "required": true,
+      "default": "coffee"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
