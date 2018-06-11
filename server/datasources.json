@@ -1,6 +1,7 @@
 {
-  "db": {
-    "name":"db",
-    "connector": "memory"
+  "in-memory": {
+    "name": "bad-habits",
+    "connector": "memory",
+    "file": "bad-habits.json"
   }
 }

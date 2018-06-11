@@ -1,6 +1,5 @@
 {
   "name": "badHabit",
-  "plural": "badHabits",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,12 +9,32 @@
     "category": {
       "type": "string",
       "required": true,
-      "default": "bar-restaurants"
+      "default": "bars-restaurants"
     },
     "product": {
       "type": "string",
       "required": true,
       "default": "coffee"
+    },
+    "location": {
+      "type": "string",
+      "required": true,
+      "default": "Cucina"
+    },
+    "amount": {
+      "type": "number",
+      "required": true,
+      "default": "-2.00"
+    },
+    "date": {
+      "type": "date",
+      "required": true,
+      "default": "June 18, 2018 06:52:00"
+    },
+    "geopoint": {
+      "type": "Geopoint",
+      "required": true,
+      "default": "{lat: 50.6245, lng: 5.566662}"
     }
   },
   "validations": [],
