@@ -1,4 +1,8 @@
-'use strict';
+(function () {
+    'use strict';
+    // this function is strict...
+ }());
+ 
  /***********************************
  * Module exports.
  ************************************/

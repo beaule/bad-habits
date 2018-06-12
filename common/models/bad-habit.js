@@ -1,4 +1,8 @@
-'use strict';
+(function () {
+    'use strict';
+    // this function is strict...
+ }());
+ 
  /***********************************
  * Module exports.
  ************************************/
@@ -68,7 +72,7 @@ module.exports = function(BadHabit) {
             description:'Get user spending bad habits analysis summary for a specific product',
             accepts: [
                 {arg: 'product', description: 'product linked to to the badhabit', type: 'string',default:'coffee'},
-                {arg: 'start-date', description: 'Start analysis after this date', type: 'date',default:'May 18, 2018 06:52:00'}
+                {arg: 'start-date', description: 'Start analysis after this date', type: 'date',default:'Jan 18, 2018 06:52:00'}
               ],
               returns: [
                   {arg: 'total-amount-bad-habits', type: 'number'},

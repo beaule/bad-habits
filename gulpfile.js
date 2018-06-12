@@ -18,7 +18,7 @@ gulp.task('build', function (callback) {
  ************************************/ 
 //Code quality
 gulp.task('lint', function(callback) {
-  return gulp.src(['server/*.js','server/lib/*.js','server/controllers/*.js','server/views/*.js','server/boot/*.js','server/data/*.js'])
+  return gulp.src(['server/*.js','server/lib/*.js','server/boot/*.js','common/models/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
