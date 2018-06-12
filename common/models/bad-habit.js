@@ -59,7 +59,7 @@ module.exports = function(BadHabit) {
                 }
             }
             //if (maxFrequentLocationElement!=null)
-                callback(null,Math.round(totalBadHabits * 100) / 100,Math.round(totalSpends * 100) / 100,totalNumberOfBadHabits,maxFrequentLocationAmount,maxFrequentLocationElement);
+                callback(null,Math.round(totalBadHabits * 100) / 100,Math.round(totalSpends * 100) / 100,totalNumberOfBadHabits,maxFrequentLocationElement,maxFrequentLocationAmount);
         });      
     };
     
