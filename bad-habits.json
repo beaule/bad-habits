@@ -7,6 +7,7 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
+    "product": 2,
     "badHabit": 2
   },
   "models": {
@@ -17,6 +18,15 @@
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
+    "product": {
+      "1":"{\"id\":1,\"name\":\"chips\"}",
+      "2":"{\"id\":2,\"name\":\"beer\"}",
+      "3":"{\"id\":3,\"name\":\"coffee\"}",
+      "4":"{\"id\":4,\"name\":\"magazine\"}",
+      "5":"{\"id\":5,\"name\":\"smoothie\"}",
+      "6":"{\"id\":6,\"name\":\"computer\"}",
+      "7":"{\"id\":7,\"name\":\"dessert\"}"
+    },
     "badHabit": {
       "1":"{\"id\":1,\"category\":\"food-groceries\",\"product\":\"chips\",\"location\":\"LAMOURETTE CCN\",\"date\":\"2017-10-26 17:30:00\",\"amount\":-3.1,\"Geopoint\":\"{lat: 50.6245, lng: 5.566662}\"}",
       "2":"{\"id\":2,\"category\":\"food-groceries\",\"product\":\"coffee\",\"location\":\"PANOS RAIL BRUXELLES\",\"date\":\"2017-10-26 07:30:00\",\"amount\":-5.3,\"Geopoint\":\"{lat: 50.6245, lng: 5.566662}\"}",

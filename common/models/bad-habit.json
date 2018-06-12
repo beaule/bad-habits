@@ -29,7 +29,7 @@
     "date": {
       "type": "date",
       "required": true,
-      "default": "June 18, 2018 06:52:00"
+      "default": "Jan 18, 2018 06:52:00"
     },
     "geopoint": {
       "type": "Geopoint",

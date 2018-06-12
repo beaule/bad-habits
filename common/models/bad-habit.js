@@ -26,33 +26,36 @@ module.exports = function(BadHabit) {
      * Extend methods
      ************************************/ 
     //get habits overview
-   BadHabit.analysis= function(category,product,startDate,callback){
+   BadHabit.analysis= function(product,startDate,callback){
        //calcul total-spends
        var filter={where: {date: {gt: startDate}}};
        BadHabit.find(filter , 
         function(err, badHabits) { 
             var totalBadHabits=0;
             var totalSpends=0;
-            var modeMap = {};
-            var maxEl = badHabits[0].location, maxCount = 1;
+            var frequentLocationMap = {};
+            var frequentLocationCurrentElement = null;
+            var maxFrequentLocationAmount = 0;
+            var maxFrequentLocationElement = null;
             var totalNumberOfBadHabits=0;
             for (var key in badHabits) {
                 totalSpends=totalSpends+Math.abs(badHabits[key].amount);
-                if(badHabits[key].category==category && badHabits[key].product==product){
+                if(badHabits[key].product==product){
                     totalBadHabits=totalBadHabits+Math.abs(badHabits[key].amount);
                     totalNumberOfBadHabits=totalNumberOfBadHabits+1;
-                }
-                var el = badHabits[key].location;
-                if(modeMap[el] == null)
-                    modeMap[el] = 1;
-                else
-                    modeMap[el]++;  
-                if(modeMap[el] > maxCount){
-                    maxEl = el;
-                    maxCount = modeMap[el];
+                    frequentLocationCurrentElement = badHabits[key].location;
+                    if(frequentLocationMap[frequentLocationCurrentElement] == null)
+                        frequentLocationMap[frequentLocationCurrentElement] = 1;
+                    else
+                        frequentLocationMap[frequentLocationCurrentElement]++;  
+                    if(frequentLocationMap[frequentLocationCurrentElement] > maxFrequentLocationAmount){
+                        maxFrequentLocationElement = frequentLocationCurrentElement;
+                        maxFrequentLocationAmount = frequentLocationMap[frequentLocationCurrentElement];
+                    }
                 }
             }
-            callback(null,Math.round(totalBadHabits * 100) / 100,Math.round(totalSpends * 100) / 100,totalNumberOfBadHabits,maxEl,modeMap[maxEl]);
+            //if (maxFrequentLocationElement!=null)
+                callback(null,Math.round(totalBadHabits * 100) / 100,Math.round(totalSpends * 100) / 100,totalNumberOfBadHabits,maxFrequentLocationAmount,maxFrequentLocationElement);
         });      
     };
     
@@ -62,9 +65,8 @@ module.exports = function(BadHabit) {
                 path:'/analysis',
                 verb:'get'                
             },
-            description:'Get user spending bad habits analysis summary for a specific category and product',
+            description:'Get user spending bad habits analysis summary for a specific product',
             accepts: [
-                {arg: 'category', description: 'category of the badhabit', type: 'string', default:'bars-restaurants' },
                 {arg: 'product', description: 'product linked to to the badhabit', type: 'string',default:'coffee'},
                 {arg: 'start-date', description: 'Start analysis after this date', type: 'date',default:'May 18, 2018 06:52:00'}
               ],

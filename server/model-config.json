@@ -37,5 +37,9 @@
   "badHabit": {
     "dataSource": "in-memory",
     "public": true
+  },
+  "product": {
+    "dataSource": "in-memory",
+    "public": true
   }
 }
