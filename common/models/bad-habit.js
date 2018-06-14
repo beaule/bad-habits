@@ -62,6 +62,12 @@ module.exports = function(BadHabit) {
                 callback(null,Math.round(totalBadHabits * 100) / 100,Math.round(totalSpends * 100) / 100,totalNumberOfBadHabits,maxFrequentLocationElement,maxFrequentLocationAmount);
         });      
     };
+
+    //confirm user want to be notify when badhabit happens
+    BadHabit.notify= function(product,callback){
+            
+            callback(null,"Notifications activated for product: "+product);
+    }; 
     
     BadHabit.remoteMethod(
         'analysis', {
@@ -82,5 +88,23 @@ module.exports = function(BadHabit) {
                   {arg: 'total-frequency-bad-habits-at-this-location', type: 'number'}
             ]
         }
+    );  
+
+
+    BadHabit.remoteMethod(
+        'notify', {
+            http:{
+                path:'/notify',
+                verb:'post'                
+            },
+            description:'Confirm user want to be notified when bad habit will happen',
+            accepts: [
+                {arg: 'product', description: 'product linked to to the badhabit', type: 'string',default:'coffee'},
+            ],
+            returns: [
+                {arg: 'message', type: 'string'},
+          ]
+        }
+        
     );  
 };
