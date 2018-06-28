@@ -1,10 +1,6 @@
-// var app = require('express')();
-// var http = require('http').Server(app);
-// var io = require('socket.io')(http);
-
-// http.listen(3000, function(){
-//     console.log('listening on *:3000');
-// });
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 (function () {
     'use strict';
@@ -128,7 +124,7 @@ module.exports = function(BadHabit) {
 
     //confirm user want to be notify when badhabit happens
     BadHabit.notify= function(product,callback){
-        //io.emit('bad_habits_notification', product);
+        io.emit('bad_habits_notification', product);
         callback(null,"Notifications activated for product: "+product);
     };
 
