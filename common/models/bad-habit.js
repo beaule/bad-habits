@@ -4,6 +4,7 @@
  }());
 
  var isChatNotified = false;
+ var botProduct = "";
  
  /***********************************
  * Module exports.
@@ -122,15 +123,16 @@ module.exports = function(BadHabit) {
 
     //confirm user want to be notify when badhabit happens
     BadHabit.notify= function(product,callback){
-        var notificationValue = "NOTHING";
+        var notificationValue = "NOTHING;";
         if(isChatNotified == true && product.includes("EasyBankingLite")){
             isChatNotified = false;
-            notificationValue = "SHOW";
+            notificationValue = "SHOW;";
         }else if(isChatNotified == false && !product.includes("EasyBankingLite")){
             isChatNotified = true;
-            notificationValue = "CHATBOT";
+            notificationValue = "CHATBOT;";
+            botProduct = product;
         }
-        callback(null,"notificationValue" + product);
+        callback(null,notificationValue + botProduct);
     };
 
     
@@ -162,7 +164,7 @@ module.exports = function(BadHabit) {
         'notify', {
             http:{
                 path:'/notify',
-                verb:'post'                
+                verb:'get'                
             },
             description:'Confirm user want to be notified when bad habit will happen',
             accepts: [
