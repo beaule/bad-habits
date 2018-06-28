@@ -130,7 +130,7 @@ module.exports = function(BadHabit) {
     BadHabit.notify= function(product,callback){
         io.emit('bad_habits_notification', product);
         callback(null,"Notifications activated for product: "+product);
-    }; 
+    };
 
     
     BadHabit.remoteMethod(
