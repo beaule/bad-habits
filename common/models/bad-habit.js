@@ -125,7 +125,7 @@ module.exports = function(BadHabit) {
 
     
     BadHabit.remoteMethod(
-        'analysis', {
+        'analysisFromSandbox', {
             http:{
                 path:'/analysis',
                 verb:'get'                
