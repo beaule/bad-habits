@@ -2,6 +2,8 @@
     'use strict';
     // this function is strict...
  }());
+
+ var isChatNotified = false;
  
  /***********************************
  * Module exports.
@@ -120,10 +122,15 @@ module.exports = function(BadHabit) {
 
     //confirm user want to be notify when badhabit happens
     BadHabit.notify= function(product,callback){
-        var http = require('http').Server(BadHabit.app);
-        var io = require('socket.io')(http);
-        io.emit('bad_habits_notification', product);
-        callback(null,"Notifications activated for product: "+product);
+        var notificationValue = "NOTHING";
+        if(isChatNotified == true && product.includes("EasyBankingLite")){
+            isChatNotified = false;
+            notificationValue = "SHOW";
+        }else if(isChatNotified == false && !product.includes("EasyBankingLite")){
+            isChatNotified = true;
+            notificationValue = "CHATBOT";
+        }
+        callback(null,"notificationValue" + product);
     };
 
     
