@@ -1,11 +1,3 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-http.listen(8081, function(){
-    console.log('listening on *:8081');
-});
-
 (function () {
     'use strict';
     // this function is strict...
@@ -128,7 +120,8 @@ module.exports = function(BadHabit) {
 
     //confirm user want to be notify when badhabit happens
     BadHabit.notify= function(product,callback){
-        console.log("test");
+        var http = require('http').Server(BadHabit.app);
+        var io = require('socket.io')(http);
         io.emit('bad_habits_notification', product);
         callback(null,"Notifications activated for product: "+product);
     };
